@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+export default function App() {
+  let username = "Yogesh";
+  let email = "xyz@html.com";
+  let list = [2,2,2,2]
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <h1 className="alert-success p-2   "> Helllo worldd</h1>
+      {list.map((item) => (<div className="bg-secondary mb-2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum
+        atque laboriosam harum labore et, similique rem voluptatibus magni,
+        sapiente aspernatur praesentium fugit rerum enim reprehenderit nam iste
+        dignissimos aliquam, eveniet obcaecati quos necessitatibus fuga.
+        Pariatur cum eos nemo quaerat beatae. Voluptates, perspiciatis harum
+        deleniti explicabo vitae non ipsa consectetur voluptate!
+      </div>))}
+      
     </div>
   );
 }
-
-export default App;
