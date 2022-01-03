@@ -1,21 +1,14 @@
-export default function App() {
-  let username = "Yogesh";
-  let email = "xyz@html.com";
-  let list = [2,2,2,2]
+/**
+ * Class - in JS this is reserved keyword
+ * because of that we have to use "classname" instead of "class" in JS..
+ * @returns
+ */
 
+export default function App() {
   return (
     <div>
-
-      <h1 className="alert-success p-2   "> Helllo worldd</h1>
-      {list.map((item) => (<div className="bg-secondary mb-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum
-        atque laboriosam harum labore et, similique rem voluptatibus magni,
-        sapiente aspernatur praesentium fugit rerum enim reprehenderit nam iste
-        dignissimos aliquam, eveniet obcaecati quos necessitatibus fuga.
-        Pariatur cum eos nemo quaerat beatae. Voluptates, perspiciatis harum
-        deleniti explicabo vitae non ipsa consectetur voluptate!
-      </div>))}
-      
+      <h1 className="alert-success p-4 text-black">Hello boys...</h1>;
+      <h1 className="alert-warning p-4 text-danger">how are you????</h1>
     </div>
   );
 }
