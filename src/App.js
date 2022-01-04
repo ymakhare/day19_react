@@ -9,6 +9,7 @@ export default function App() {
 }
 
 function MyForm() {
+  const [validationCheck, setValidationCheck] = useState(false);
   const [List, setList] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -37,6 +38,11 @@ function MyForm() {
 
   const register = () => {
     //alert(`${username} ${email} ${mobno} ${password}`); //working fine
+    if (username == "" || email == "" || mobno == "" || password == "") {
+      setValidationCheck(true);
+      return;
+    }
+
     const object = {
       Name: username,
       Email: email,
@@ -62,6 +68,9 @@ function MyForm() {
           placeholder="Enter your Name"
           value={username}
           onChange={uname}
+          className={
+            username == "" && validationCheck ? "border boder-danger" : ""
+          }
         />
       </div>
       <div>
@@ -71,6 +80,9 @@ function MyForm() {
           placeholder="Enter your email id"
           value={email}
           onChange={uemail}
+          className={
+            email == "" && validationCheck ? "border boder-danger" : ""
+          }
         />
       </div>
       <div>
@@ -80,6 +92,9 @@ function MyForm() {
           placeholder="Enter your Mob No."
           value={mobno}
           onChange={umobno}
+          className={
+            mobno == "" && validationCheck ? "border boder-danger" : ""
+          }
         />
       </div>
       <div>
@@ -89,6 +104,9 @@ function MyForm() {
           placeholder="Enter your password"
           value={password}
           onChange={upassword}
+          className={
+            password == "" && validationCheck ? "border boder-danger" : ""
+          }
         />
       </div>
       <div>
