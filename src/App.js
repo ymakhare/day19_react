@@ -2,72 +2,113 @@ import { useState } from "react";
 
 export default function App() {
   return (
-    <>
-      <MyComponent />
-    </>
+    <div>
+      <MyForm></MyForm>
+    </div>
   );
 }
 
-function MyComponent() {
-  const [message, setMessaage] = useState("");
-  const [list, setList] = useState([]);
+function MyForm() {
+  const [List, setList] = useState([]);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobno, setMobno] = useState("");
+  const [password, setPassword] = useState("");
 
-  const tweet = (e) => {
-    const newMessage = e.target.value;
-    setMessaage(newMessage);
+  const uname = (e) => {
+    const newUname = e.target.value;
+    setUsername(newUname);
   };
 
-  const post = () => {
-    const newList = [message, ...list];
+  const uemail = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+  };
+
+  const umobno = (e) => {
+    const newMob = e.target.value;
+    setMobno(newMob);
+  };
+
+  const upassword = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+  };
+
+  const register = () => {
+    //alert(`${username} ${email} ${mobno} ${password}`); //working fine
+    const object = {
+      Name: username,
+      Email: email,
+      Mob_no: mobno,
+      Password: password,
+    };
+
+    const newList = [object, ...List];
     setList(newList);
-    setMessaage("");
-    console.log(message);
-  };
-
-  const deletePost = () => {
-    list.splice(0, 1);
-    setList([...list]);
-  };
-
-  let [counter, setCounter] = useState(0);
-  let [decounter, setdeCounter] = useState(0);
-
-  const increment = () => {
-    counter++;
-    setCounter(counter);
-  };
-
-  const decrement = () => {
-    decounter++;
-    setdeCounter(decounter);
+    setUsername("");
+    setEmail("");
+    setMobno("");
+    setPassword("");
   };
 
   return (
     <div>
-      <div className="bg-dark text-light p-3 fs-1">My tweet App</div>
-      <input
-        type="text"
-        placeholder="Tweet Here..."
-        value={message}
-        onChange={tweet}
-      />
-      <input type="button" className="mx-2" value="Tweet" onClick={post} />
-      <input type="button" value="Delete Tweet" onClick={deletePost} />
-
-      {list.map((item) => (
-        <div>
-          <div className="bg-dark text-light mb-1"> {item} </div>
-          <input
-            type="button"
-            className="mb-1"
-            value="Like"
-            onClick={increment}
-          />
-          <span className="mx-2">{counter}</span>
-          <input type="button" value="Dislike" onClick={decrement} />
-          <span className="mx-2">{decounter}</span>
-        </div>
-      ))}
+      <h1 className="bg-dark text-light p-2">Registration Form</h1>
+      <div>
+        <input
+          type="text"
+          className="form form-control w-50 my-2"
+          placeholder="Enter your Name"
+          value={username}
+          onChange={uname}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          className="form form-control w-50 my-2"
+          placeholder="Enter your email id"
+          value={email}
+          onChange={uemail}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          className="form form-control w-50 my-2"
+          placeholder="Enter your Mob No."
+          value={mobno}
+          onChange={umobno}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          className="form form-control w-50 my-1"
+          placeholder="Enter your password"
+          value={password}
+          onChange={upassword}
+        />
+      </div>
+      <div>
+        <input
+          type="button"
+          className="btn btn-outline-danger my-2 w-25"
+          value="Register"
+          onClick={register}
+        />
+      </div>
+      <div>
+        {List.map((item) => (
+          <div>
+            <div>Name : {item.Name}</div>
+            <div>Email Id : {item.Email}</div>
+            <div>Mobile No. : {item.Mob_no}</div>
+            <div>Password : {item.Password}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
